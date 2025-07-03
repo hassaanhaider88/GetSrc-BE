@@ -129,7 +129,7 @@ VITE_API_BASE=http://localhost:3000/api
 
 ## ✨ Author
 
-**Hassaan Haider** – [@itsHassaanHaider](https://github.com/itsHassaanHaider)
+**Hassaan Haider** – [@itsHassaanHaider](https://github.com/hassaanhaider88)
 
 ---
 
@@ -141,4 +141,4 @@ This project is open-source under the **MIT License**.
 
 ## ⭐ Support
 
-If you like this project, consider giving it a ⭐ on [GitHub](https://github.com/your-repo)!
+If you like this project, consider giving it a ⭐ on [GitHub](https://github.com/hassaanhaider88/GetSrc-BE)!
