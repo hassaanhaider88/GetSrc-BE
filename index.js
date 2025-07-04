@@ -9,6 +9,7 @@ import  DBConnect  from './config/DB.js';
 import { AllFilesData } from './Router/AllFilesData.js';
 import ImgKitAuth from './ImgKitAuth.js'
 import DeleteFile from './Router/DeleteFileRouter.js'
+import EmailRouter from './Router/emailRouter.js'
 const app = express();
 
 app.use(express.json());
@@ -21,10 +22,6 @@ dotenv.config();
 DBConnect()
 var PORT = process.env.PORT || 3001;
 
-// var corsOptions = {
-//   origin: "http://localhost:5371",
-//   optionsSuccessStatus: 200,
-// };
 app.use(cors());
 
 
@@ -38,6 +35,8 @@ app.use("/api/upload-video",  VideoUploadRouter);
 app.use('/api/files',AllFilesData)
 app.use('/api/auth',ImgKitAuth)
 app.use('/api/file',DeleteFile)
+
+app.use('/api/save-email',EmailRouter)
 
 app.listen(PORT, () => {
   console.log(`Server Is Live On http://localhost:${PORT}`);
