@@ -1,7 +1,7 @@
  ```markdown
 # GetSrc – Upload & Host Images & Videos Instantly
 
-**GetSrc** is a powerful, developer-focused platform to **upload, host, and manage images and videos** effortlessly. Whether you're building websites or web apps, GetSrc gives you instant CDN-powered links ready to embed.
+GetSrc is a powerful, developer-focused platform to upload, host, and manage images and videos effortlessly. Whether you're building websites or web apps, GetSrc gives you instant CDN-powered links ready to embed.
 
 ![Banner](https://getsrc.com/banner-preview.png)
 
@@ -22,7 +22,7 @@
 - 🖼️ Live previews & file filtering
 - 📦 Free plan with upgrade support
 - 🌈 Clean UI/UX with Tailwind CSS
-- 🧠 Built using **React**, **Zustand**, **Express**, **MongoDB**
+- 🧠 Built using React, Zustand, Express, MongoDB
 
 ---
 
@@ -114,7 +114,7 @@ VITE_API_BASE=http://localhost:3000/api
 
 - ✅ Meta tags (Open Graph, Twitter, Canonical)
 - ✅ Structured Data via `ld+json`
-- ✅ Lighthouse score: **100 Performance**, **100 Accessibility**, **100 SEO**
+- ✅ Lighthouse score: 100 Performance, 100 Accessibility, 100 SEO
 
 ---
 
@@ -129,13 +129,13 @@ VITE_API_BASE=http://localhost:3000/api
 
 ## ✨ Author
 
-**Hassaan Haider** – [@itsHassaanHaider](https://github.com/hassaanhaider88)
+Hassaan Haider – [@itsHassaanHaider](https://github.com/hassaanhaider88)
 
 ---
 
 ## 📜 License
 
-This project is open-source under the **MIT License**.
+This project is open-source under the MIT License.
 
 ---
 
