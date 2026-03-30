@@ -2,17 +2,21 @@ import dotenv from 'dotenv'
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import morgan from "morgan"
+
 import UserRouter from "./Router/UserRouter.js";
 import ImgUploadRouter from "./Router/ImgUploader.js";
 import VideoUploadRouter from "./Router/VideoUploader.js";
-import  DBConnect  from './config/DB.js';
+import DBConnect from './config/DB.js';
 import { AllFilesData } from './Router/AllFilesData.js';
 import ImgKitAuth from './ImgKitAuth.js'
 import DeleteFile from './Router/DeleteFileRouter.js'
 import EmailRouter from './Router/emailRouter.js'
+import limiter from './middleware/rateLimtter.js';
 const app = express();
 
 app.use(express.json());
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,20 +27,23 @@ DBConnect()
 var PORT = process.env.PORT || 3001;
 
 app.use(cors());
+app.use(limiter)
 
+
+app.use(morgan(':method :url :response-time'))
 
 app.get("/", (req, res) => {
-  res.send("Home");
+  res.json({ message: "Welcome To GetSrc Backend" });
 });
 
 app.use("/api/user", UserRouter);
 app.use("/api/img-upload", ImgUploadRouter);
-app.use("/api/upload-video",  VideoUploadRouter);
-app.use('/api/files',AllFilesData)
-app.use('/api/auth',ImgKitAuth)
-app.use('/api/file',DeleteFile)
+app.use("/api/upload-video", VideoUploadRouter);
+app.use('/api/files', AllFilesData)
+app.use('/api/auth', ImgKitAuth)
+app.use('/api/file', DeleteFile)
 
-app.use('/api/save-email',EmailRouter)
+app.use('/api/save-email', EmailRouter)
 
 app.listen(PORT, () => {
   console.log(`Server Is Live On http://localhost:${PORT}`);
