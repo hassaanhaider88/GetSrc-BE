@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import morgan from "morgan"
 
+
 import UserRouter from "./Router/UserRouter.js";
 import ImgUploadRouter from "./Router/ImgUploader.js";
 import VideoUploadRouter from "./Router/VideoUploader.js";
@@ -13,6 +14,10 @@ import ImgKitAuth from './ImgKitAuth.js'
 import DeleteFile from './Router/DeleteFileRouter.js'
 import EmailRouter from './Router/emailRouter.js'
 import limiter from './middleware/rateLimtter.js';
+import compression from 'compression';
+
+
+
 const app = express();
 
 app.use(express.json());
@@ -26,20 +31,25 @@ dotenv.config();
 DBConnect()
 var PORT = process.env.PORT || 3001;
 
+// middlewares
+app.use(compression())
+
 app.use(cors());
-app.use(limiter)
-
-
+// app.use(limiter)
 app.use(morgan(':method :url :response-time'))
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome To GetSrc Backend" });
 });
 
+
+// send files
+app.get('/api/files', AllFilesData)
+
+
 app.use("/api/user", UserRouter);
 app.use("/api/img-upload", ImgUploadRouter);
 app.use("/api/upload-video", VideoUploadRouter);
-app.use('/api/files', AllFilesData)
 app.use('/api/auth', ImgKitAuth)
 app.use('/api/file', DeleteFile)
 
