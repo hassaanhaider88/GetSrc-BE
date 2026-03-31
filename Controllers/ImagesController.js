@@ -13,11 +13,15 @@ const ImgUpload = async (req, res) => {
 
 const UploadByUrl = async (req, res) => {
   try {
-    const { ImgUrl, Video, UserCreated, FileType, File_Name } = req.body;
+    const { ImgUrl, Video, UserCreated, FileType, File_Name, IsPrivate = false } = req.body;
 
 
     if (!UserCreated || (!ImgUrl && !Video)) {
       return res.status(400).json({ error: "Missing required fields." });
+    }
+
+    if (req.user.uploadedMedia.length >= 15 && req.user.ProPlan == false) {
+      return res.status(403).json({ error: "Upload limit reached. You can only upload up to 15 media items." });
     }
 
     const mediaDoc = await Media.create({
@@ -25,6 +29,7 @@ const UploadByUrl = async (req, res) => {
       img: ImgUrl || null,
       FileName: File_Name || "Untitled",
       FileType: FileType || "unknown",
+      IsPrivate,
     });
 
     await User.findByIdAndUpdate(

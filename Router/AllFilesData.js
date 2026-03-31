@@ -18,7 +18,16 @@ export async function AllFilesData(req, res) {
       });
     }
 
-    const data = await Media.find().sort();
+    const data = await Media.aggregate([
+      {
+        $match: {
+          $or: [
+            { IsPrivate: false },
+            { IsPrivate: { $exists: false } }
+          ]
+        }
+      }
+    ])
     if (!data) {
       return res.status(404).json({ success: false, message: "No files found" });
     }

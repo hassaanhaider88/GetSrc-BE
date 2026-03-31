@@ -18,6 +18,10 @@ const MediaSchema = new mongoose.Schema({
     required: true,
     enum: ["Images", "Videos", "GIFs"],
   },
+  IsPrivate: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

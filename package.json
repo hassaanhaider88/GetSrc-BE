@@ -24,6 +24,7 @@
     "fastify": "^5.8.4",
     "imagekit": "^6.0.0",
     "ioredis": "^5.10.1",
+    "jsonwebtoken": "^9.0.3",
     "jwt": "^0.2.0",
     "mongoose": "^8.16.1",
     "morgan": "^1.10.1",

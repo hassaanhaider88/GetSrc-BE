@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import User from "../Models/userModel.js";
+import jwt from "jsonwebtoken";
 
 export async function UserUpdate(req, res) {
   try {
@@ -22,6 +23,7 @@ export async function UserUpdate(req, res) {
     return res.status(500).json({ error: "Server Error" });
   }
 }
+// check if user exist and return user data
 export async function SignIn(req, res) {
   try {
     const { Email, password } = req.body;
@@ -41,6 +43,8 @@ export async function SignIn(req, res) {
       return res.status(401).json({ error: "Invalid credentials." });
     }
 
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+
     res.status(200).json({
       message: "Login successful",
       user: {
@@ -51,6 +55,7 @@ export async function SignIn(req, res) {
         ProPlan: user.ProPlan,
         uploadedMedia: user.uploadedMedia,
       },
+      token,
     });
   } catch (error) {
     console.error("SignIn Error:", error);
@@ -58,6 +63,7 @@ export async function SignIn(req, res) {
   }
 }
 
+// create new user
 export async function SignUp(req, res) {
   try {
     const { FullName, Email, password } = req.body;
@@ -73,6 +79,7 @@ export async function SignUp(req, res) {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
+
     // Create and save new user
     const newUser = new User({
       full_name: FullName,
@@ -81,9 +88,11 @@ export async function SignUp(req, res) {
     });
 
     await newUser.save();
+    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    console.log(token);
     res
       .status(201)
-      .json({ message: "User created successfully", user: newUser });
+      .json({ message: "User created successfully", user: newUser, token });
   } catch (error) {
     console.error("SignUp Error:", error);
     res.status(500).json({ error: "Server error. Please try again later." });
@@ -92,17 +101,32 @@ export async function SignUp(req, res) {
 
 export async function GetUserPost(req, res) {
   try {
-    // console.log(req.params.id);
-    const UserPost = await User.findById(req.params.id).populate({
-      path: "uploadedMedia",
-      options: { sort: { createdAt: -1 } },
-    });
-    if (!UserPost) {
+    if (!req.user) {
       return res.status(404).json({ error: "User not found.", succuss: true });
     }
-    res.status(200).json({ data: UserPost, succuss: true });
+    const userPost = req.user.uploadedMedia;
+    if (!userPost) {
+      return res.status(404).json({ error: "User not found.", succuss: true });
+    }
+    res.status(200).json({ data: userPost, succuss: true });
   } catch (error) {
     console.error("SignUp Error:", error);
     res.status(500).json({ error: "Server error. Please try again later." });
+  }
+}
+
+export async function getUser(req, res) {
+  try {
+    if (!req.user) {
+      return res.status(404).json({ error: "User not found.", succuss: false });
+    }
+    return res.status(200).json({ data: req.user, succuss: true });
+
+  } catch (error) {
+    return res.json({
+      succuss: false,
+      message: "Something went wrong on server",
+      error
+    })
   }
 }

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import multer from "multer";
 import HandleUserAndVideo from "../upload.js";
+import userAuth from "../middleware/userAuth.js";
 
 
 dotenv.config();
@@ -16,8 +17,8 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-router.post("/", upload.single("Uploader"), async (req, res) => {
-  const { UserCreated, File_Name } = req.body;
+router.post("/", userAuth, upload.single("Uploader"), async (req, res) => {
+  const { UserCreated, File_Name, IsPrivate = false } = req.body;
   try {
     const fileBuffer = req.file?.buffer;
     const originalName = req.file?.originalname;
@@ -25,6 +26,11 @@ router.post("/", upload.single("Uploader"), async (req, res) => {
     const sanitize = (str) => str.replace(/[^a-zA-Z0-9-_]/g, "_");
 
     const publicId = sanitize(`video_${Date.now()}_${File_Name || "video"}`);
+
+    // ProPlan: {
+    if (req.user.uploadedMedia.length >= 15 && req.user.ProPlan == false) {
+      return res.status(403).json({ error: "Upload limit reached. You can only upload up to 15 media items." });
+    }
 
     // Cloudinary Upload using stream
     const streamUpload = () =>
@@ -47,9 +53,9 @@ router.post("/", upload.single("Uploader"), async (req, res) => {
     var Res = await HandleUserAndVideo(
       File_Name,
       result.secure_url,
-      UserCreated
+      UserCreated,
+      IsPrivate
     );
-    console.log(Res);
     res.status(201).json({
       message: "Video uploaded and saved",
       previewUrl: result.secure_url,
@@ -62,3 +68,5 @@ router.post("/", upload.single("Uploader"), async (req, res) => {
 });
 
 export default router;
+
+
