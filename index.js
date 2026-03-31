@@ -14,6 +14,7 @@ import ImgKitAuth from './ImgKitAuth.js'
 import DeleteFile from './Router/DeleteFileRouter.js'
 import EmailRouter from './Router/emailRouter.js'
 import limiter from './middleware/rateLimtter.js';
+import userSearchRouter from './Router/UserSearchRouter.js'
 import compression from 'compression';
 
 
@@ -35,7 +36,7 @@ var PORT = process.env.PORT || 3001;
 app.use(compression())
 
 app.use(cors());
-// app.use(limiter)
+app.use(limiter)
 app.use(morgan(':method :url :response-time'))
 
 app.get("/", (req, res) => {
@@ -52,8 +53,9 @@ app.use("/api/img-upload", ImgUploadRouter);
 app.use("/api/upload-video", VideoUploadRouter);
 app.use('/api/auth', ImgKitAuth)
 app.use('/api/file', DeleteFile)
-
 app.use('/api/save-email', EmailRouter)
+
+app.use("/api/searchs",userSearchRouter)
 
 app.listen(PORT, () => {
   console.log(`Server Is Live On http://localhost:${PORT}`);
