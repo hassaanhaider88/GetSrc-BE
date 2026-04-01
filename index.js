@@ -9,7 +9,7 @@ import UserRouter from "./Router/UserRouter.js";
 import ImgUploadRouter from "./Router/ImgUploader.js";
 import VideoUploadRouter from "./Router/VideoUploader.js";
 import DBConnect from './config/DB.js';
-import { AllFilesData } from './Router/AllFilesData.js';
+import { AllFilesData } from './Controllers/MediaController.js';
 import ImgKitAuth from './ImgKitAuth.js'
 import DeleteFile from './Router/DeleteFileRouter.js'
 import EmailRouter from './Router/emailRouter.js'
@@ -55,7 +55,7 @@ app.use('/api/auth', ImgKitAuth)
 app.use('/api/file', DeleteFile)
 app.use('/api/save-email', EmailRouter)
 
-app.use("/api/searchs",userSearchRouter)
+app.use("/api/searchs", userSearchRouter)
 
 app.listen(PORT, () => {
   console.log(`Server Is Live On http://localhost:${PORT}`);

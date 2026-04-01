@@ -4,7 +4,7 @@ import {
   SignIn,
   SignUp,
   UserUpdate,
-} from "../Controllers/UserData.js";
+} from "../Controllers/UserController.js";
 import express from "express";
 import userAuth from "../middleware/userAuth.js";
 

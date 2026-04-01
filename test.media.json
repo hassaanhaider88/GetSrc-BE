@@ -37,8 +37,8 @@
       "$oid": "68629045b7bf1c441e35a8b9"
     },
     "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
-    "FileName": "Volkswagen GTI  Review",
+    "video": "https://videos.pexels.com/video-files/32928952/14033958_360_640_30fps.mp4",
+    "FileName": "Cricket Playing" ,
     "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-10-23T14:00:00Z"
@@ -158,8 +158,8 @@
       "$oid": "68629045b7bf1c441e35a894"
     },
     "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "FileName": "fire-show",
+    "video": "https://videos.pexels.com/video-files/36088020/15304739_360_640_60fps.mp4",
+    "FileName": "Practice Cricket Batting",
     "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-03-15T19:00:00Z"
@@ -498,10 +498,10 @@
     "_id": {
       "$oid": "68629045b7bf1c441e35a8a1"
     },
-    "video": null,
-    "img": "https://i.pinimg.com/236x/cd/93/6d/cd936df61472054fd3245fac5f7a03ce.jpg",
-    "FileName": "thunderstorm",
-    "FileType": "Images",
+    "video": "https://videos.pexels.com/video-files/20144259/20144259-sd_640_360_30fps.mp4",
+    "img": null,
+    "FileName": "Fighting",
+    "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-07-02T18:00:00Z"
   },
@@ -510,8 +510,8 @@
       "$oid": "68629045b7bf1c441e35a8af"
     },
     "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-    "FileName": "tears-of-steel",
+    "video": "https://videos.pexels.com/video-files/29100917/12572470_640_360_24fps.mp4",
+    "FileName": "Greeting",
     "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-10-18T13:00:00Z"
@@ -652,10 +652,10 @@
     "_id": {
       "$oid": "68629045b7bf1c441e35a8ae"
     },
-    "video": null,
-    "img": "https://i.pinimg.com/236x/f7/1e/9d/f71e9d0095cfd225f06e2d35518e6e87.jpg",
-    "FileName": "minimal-design",
-    "FileType": "Images",
+    "video": "https://videos.pexels.com/video-files/32960636/14048049_360_640_60fps.mp4",
+    "img": null,
+    "FileName": "Racing track",
+    "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-09-12T09:00:00Z"
   },
@@ -697,8 +697,8 @@
       "$oid": "68629045b7bf1c441e35a88a"
     },
     "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    "FileName": "bunny-movie",
+    "video": "https://videos.pexels.com/video-files/5638001/5638001-uhd_2160_3840_25fps.mp4",
+    "FileName": "Three Men stands",
     "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-03-10T18:00:00Z"
@@ -1055,17 +1055,7 @@
     "IsPrivate": false,
     "createdAt": "2024-06-01T11:00:00Z"
   },
-  {
-    "_id": {
-      "$oid": "68629045b7bf1c441e35a8bc"
-    },
-    "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-    "FileName": "We Are Going On Bullrun",
-    "FileType": "Videos",
-    "IsPrivate": false,
-    "createdAt": "2024-10-23T14:00:00Z"
-  },
+  
   {
     "_id": {
       "$oid": "68629045b7bf1c441e35a8be"
@@ -1154,17 +1144,7 @@
     "IsPrivate": false,
     "createdAt": "2024-08-18T21:05:00Z"
   },
-  {
-    "_id": {
-      "$oid": "68629045b7bf1c441e35a8b2"
-    },
-    "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-    "FileName": "Tears Of Steel",
-    "FileType": "Videos",
-    "IsPrivate": false,
-    "createdAt": "2024-03-30T22:00:00Z"
-  },
+ 
   {
     "_id": {
       "$oid": "68629045b7bf1c441e35a8b5"
@@ -1280,8 +1260,8 @@
       "$oid": "68629045b7bf1c441e35a8a8"
     },
     "img": null,
-    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-    "FileName": "car-ad",
+    "video": "https://videos.pexels.com/video-files/7988169/7988169-sd_338_640_25fps.mp4",
+    "FileName": "Cenima",
     "FileType": "Videos",
     "IsPrivate": false,
     "createdAt": "2024-03-25T21:00:00Z"
@@ -1367,7 +1347,7 @@
     "_id": {
       "$oid": "68629045b7bf1c441e35a8ec"
     },
-    "video": "https://i.pinimg.com/videos/thumbnails/originals/79/87/1f/79871f0082eacf2a858a49523d15da88.0000000.jpg",
+    "video": null,
     "img": "https://i.pinimg.com/236x/04/40/33/044033121a2db10835d9cdf0f0b28f89.jpg",
     "FileName": "flag mockup",
     "FileType": "Images",
@@ -1730,7 +1710,7 @@
     "_id": {
       "$oid": "68629045b7bf1c441e35a92d"
     },
-    "video": "blob:https://www.pinterest.com/0b251da4-0a2e-47ef-af8f-cf2ae15b7a5c",
+    "video":null,
     "img": "https://i.pinimg.com/236x/4b/5f/ae/4b5fae8e28a423a5596d02af3c5eaea0.jpg",
     "FileName": "Money Wall Art Dollars and Bitcoin Frame ",
     "FileType": "Images",
@@ -1759,17 +1739,7 @@
     "IsPrivate": false,
     "createdAt": "2024-10-27T00:00:00Z"
   },
-  {
-    "_id": {
-      "$oid": "68629045b7bf1c441e35a8cd"
-    },
-    "video": "blob:https://www.pinterest.com/32ad0148-e143-4c5e-b9b0-c5895bcb7ca5",
-    "img": "https://i.pinimg.com/236x/10/53/41/1053413dd5f4fca6733762aff2f3fd11.jpg",
-    "FileName": "ASUS Zenbook Duo",
-    "FileType": "Images",
-    "IsPrivate": false,
-    "createdAt": "2024-01-15T14:30:00Z"
-  },
+ 
   {
     "_id": {
       "$oid": "68629045b7bf1c441e35a8ce"

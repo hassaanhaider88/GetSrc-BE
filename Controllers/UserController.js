@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import User from "../Models/userModel.js";
+import Media from "../Models/MediaMode.js";
 import jwt from "jsonwebtoken";
 
 export async function UserUpdate(req, res) {
@@ -129,4 +130,22 @@ export async function getUser(req, res) {
       error
     })
   }
+}
+
+
+export async function DeleteUserMedia(req, res) {
+  try {
+    var id = req.params.id;
+    const deletedFile = await Media.findByIdAndDelete(id);
+
+    if (!deletedFile) {
+      return res.status(404).json({ message: "File not found", success: false });
+    }
+
+    res.status(202).json({ data: deletedFile, success: true });
+  } catch (err) {
+    console.error("Deletion error:", err);
+    res.status(500).json({ message: "Server error", error: err, success: true });
+  }
+
 }
